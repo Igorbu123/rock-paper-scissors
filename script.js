@@ -10,7 +10,9 @@ function RandomNum(min, max){
 
 
 
-function GetComputerChoice(CPU_choice){
+//RANDOM GENERATOR FOR COMPUTER SELECTION//
+
+function GetComputerChoice(CPU_choice){  
     
     CPU_choice = RandomNum(1, 3);
     
@@ -21,7 +23,7 @@ function GetComputerChoice(CPU_choice){
     }
     
     else if(CPU_choice == 2){
-        console.log("computer choose Paper!!")
+        console.log("computer choose Papper!!")
         CPU_choice = "Paper";
         return CPU_choice;   
     }
@@ -30,8 +32,37 @@ function GetComputerChoice(CPU_choice){
         console.log("computer choose Scissors!!")
         CPU_choice = "Scissors";
         return CPU_choice;  
+    }  
+}
+//GetComputerChoice();
+
+
+
+//ASKS FOR AND RETURNS PLAYER SELECTION IN STRING FORMAT
+
+function PlayerSelection(PlayerChoice){
+    
+    let choice = prompt("Rock, Papper, Scissors")
+    let choice_adjusted = choice.toLowerCase();
+        
+   
+    if(choice_adjusted == "rock"){
+    console.log("You chose Rock!!");
+    return choice_adjusted;
     }
 
-    
+    else if(choice_adjusted == "papper"){
+    console.log("You chose Papper!!");
+    return choice_adjusted;
+    } 
+
+    else if(choice_adjusted == "scissors"){
+    console.log("You chose Scissors!!")
+    return choice_adjusted;
+    }
+
+    else if(choice_adjusted != "rock" || "papper" || "scissors"){
+    console.log("Please input valid input");
+    }
 }
-GetComputerChoice();
+//PlayerSelection();
