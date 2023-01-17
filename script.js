@@ -1,6 +1,8 @@
 
 let CPU_choice_adjusted;
 let choice_adjusted;
+let CPU_counter = 0;
+let PlayerCounter = 0;
     
 function RandomNum(min, max){
 
@@ -84,6 +86,8 @@ function PlayerSelection(PlayerChoice){
 
 function PlayRound(cpupick,playerpick){
 
+   
+
     PlayerSelection();
     GetComputerChoice();
 
@@ -93,9 +97,11 @@ function PlayRound(cpupick,playerpick){
     }   
     else if(CPU_choice_adjusted == "rock" && choice_adjusted == "scissors"){
         console.log("You LOSE!!");
+        return CPU_counter++;
     }
     else if(CPU_choice_adjusted == "rock" && choice_adjusted == "papper"){
         console.log("You WIN!!");
+        return PlayerCounter++;
     }
     
     
@@ -104,9 +110,11 @@ function PlayRound(cpupick,playerpick){
     }
     else if(CPU_choice_adjusted == "papper" && choice_adjusted == "rock"){
         console.log("You LOSE!!");
+        return CPU_counter++;
     }
     else if(CPU_choice_adjusted == "papper" && choice_adjusted == "scissors"){
         console.log("You WIN!!");
+        return PlayerCounter++;
     }
 
 
@@ -115,17 +123,39 @@ function PlayRound(cpupick,playerpick){
     }
     else if(CPU_choice_adjusted == "scissors" && choice_adjusted == "papper"){
         console.log("you LOSE!!");
+        return CPU_counter++;
     }
     else if(CPU_choice_adjusted == "scissors" && choice_adjusted == "rock"){
         console.log("You WIN!!");
+        return PlayerCounter++;
     }
 }
 
 
 
 
+//plays a game of 5 rounds and declares winner
 
-PlayRound();
+function game(){
+
+
+    for(let i = 0; i < 5; i++){
+        
+        PlayRound();
+        
+    }
+
+    if(CPU_counter > PlayerCounter){
+        console.log("YOU DIED GIT GUT")
+    }
+    else if(PlayerCounter > CPU_counter){
+        console.log("YOU WIN GG EZ")
+    }
+}
+game();
+
+
+//PlayRound();
 //console.log(choice_adjusted);
 //GetComputerChoice();
 //PlayerSelection();
