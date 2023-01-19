@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" type = "text/css" href="./style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock paper scissors</title>
 </head>
 <body>
+
+    <div class="container">
+        <div class="selectionMenu">
+            <button class="btn_rock">ROCK</button>
+            <button class="btn_papper">PAPPER</button>
+            <button class="btn_scissors">SCISSORS</button>
+        </div>
+    </div>
+    <div class="scoreBoard">
+        <div class="playerScore">
+            <h1>YOUR POINTS:</h1>
+            <h2 class ="playerCounter">1</h2>
+        </div>
+
+        <div class="cpuScore">
+            <h1>COMPUTER POINTS: </h1>
+            <h2 class="cpuCounter">1</h2>
+        </div>
+
+
+    </div>
     
 </body>
 </html>
