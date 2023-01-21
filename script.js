@@ -16,6 +16,20 @@ const btn_papper = document.querySelector('.btn_papper');
 const btn_scissors = document.querySelector('.btn_scissors');
 const table1 = document.querySelector('.table1');
 const listElement1 = document.querySelector('.listElement1');
+const cpuScore = document.querySelector('.cpuScore');
+const cpuCounter = document.querySelector('.cpuCounter');
+const playerCounter = document.querySelector('.playerCounter');
+const playerScore = document.querySelector('playerScore');
+const notificationScreen = document.querySelector('.notificationScreen');
+const notificationTextBig = document.querySelector('.notificationTextBig');
+const notificationTextSmall = document.querySelector('.notificationTextSmall')
+const notificationWinnerText = document.querySelector('.notificationWinnerText');
+const notificationPlayAgain = document.querySelector('.notificationPlayAgain');
+
+
+
+
+
 
 
 btn_rock.addEventListener('click', () =>{
@@ -39,6 +53,8 @@ btn_scissors.addEventListener('click', () =>{
 
 
 
+
+
 //RANDOM GENERATOR FOR COMPUTER SELECTION//
 
 function GetComputerChoice(CPU_choice){  
@@ -46,19 +62,19 @@ function GetComputerChoice(CPU_choice){
     CPU_choice = RandomNum(1, 3);
     
     if(CPU_choice == 1){
-        console.log("Computer choose Rock!!")
+        notificationTextBig.textContent = "Computer chose rock!!";
         CPU_choice_adjusted = "rock";
         return CPU_choice_adjusted;   
     }
     
     else if(CPU_choice == 2){
-        console.log("computer choose Papper!!")
+        notificationTextBig.textContent = "Computer chose papper!!";
         CPU_choice_adjusted = "papper";
         return CPU_choice_adjusted;   
     }
 
     else if(CPU_choice == 3){
-        console.log("computer choose Scissors!!")
+        notificationTextBig.textContent = "Computer chose scissors!!"
         CPU_choice_adjusted = "scissors";
         return CPU_choice_adjusted;  
     }  
@@ -76,34 +92,96 @@ function GetComputerChoice(CPU_choice){
 function PlayerSelection(PlayerChoice){
     
     
-
     btn_rock.addEventListener('click', () =>{
     
         choice_adjusted = "rock";
         
-        return PlayRound();
+        PlayRound();
         
-        
+        cpuCounter.textContent = CPU_counter;
+        playerCounter.textContent = PlayerCounter;
+
+        if(PlayerCounter == 5){
+            notificationWinnerText.textContent = "YOU WIN THE GAME GG EZ";
+            notificationPlayAgain.textContent = "press any option to play again"
+            notificationTextBig.textContent = " ";
+            notificationTextSmall.textContent = " ";
+            PlayerCounter = 0;
+            CPU_counter = 0;
+        }
+            else if(CPU_counter == 5){
+                notificationWinnerText.textContent = "YOU DIED GIT GUD SCRUB";
+                notificationPlayAgain.textContent = "press any option to try again"
+                notificationTextBig.textContent = " ";
+                notificationTextSmall.textContent = " ";
+                PlayerCounter = 0;
+                CPU_counter = 0;
+            }  
     });
     
+
+
     btn_papper.addEventListener('click', () =>{
         
         choice_adjusted = "papper";
         
         PlayRound();
+
+        cpuCounter.textContent = CPU_counter;
+        playerCounter.textContent = PlayerCounter;
+
+        if(PlayerCounter == 5){
+            notificationWinnerText.textContent = "YOU WIN THE GAME GG EZ";
+            notificationPlayAgain.textContent = "press any option to play again";
+            notificationTextBig.textContent = " ";
+            notificationTextSmall.textContent = " ";
+            PlayerCounter = 0;
+            CPU_counter = 0;
+        }
+            else if(CPU_counter == 5){
+                notificationWinnerText.textContent = "YOU DIED GIT GUD SCRUB";
+                notificationPlayAgain.textContent = "press any option to try again";
+                notificationTextBig.textContent = " ";
+                notificationTextSmall.textContent = " ";
+                PlayerCounter = 0;
+                CPU_counter = 0;
+            }
+
     });
     
+
+
     btn_scissors.addEventListener('click', () =>{
 
         choice_adjusted = "scissors";
         
         PlayRound();
 
-    });  
+        cpuCounter.textContent = CPU_counter;
+        playerCounter.textContent = PlayerCounter;
 
-    
+        if(PlayerCounter == 5){
+            notificationWinnerText.textContent = "YOU WIN THE GAME GG EZ";
+            notificationPlayAgain.textContent = "press any option to play again";
+            notificationTextBig.textContent = " ";
+            notificationTextSmall.textContent = " ";
+            
+            PlayerCounter = 0;
+            CPU_counter = 0;
+        }
+            else if(CPU_counter == 5){
+                notificationWinnerText.textContent = "YOU DIED GIT GUD SCRUB";
+                notificationPlayAgain.textContent = "press any option to try again";
+                notificationTextBig.textContent = " ";
+                notificationTextSmall.textContent = " ";
+               
+                PlayerCounter = 0;
+                CPU_counter = 0;
+            }
+        });   
+        
 }
-PlayerSelection();
+
 //console.log(choice_adjusted);
 
 
@@ -116,63 +194,59 @@ function PlayRound(cpupick,playerpick){
 
     
 
+
     GetComputerChoice();
 
+    notificationWinnerText.textContent = " ";
+    notificationPlayAgain.textContent = " ";
 
-    if(PlayerCounter == 5){
-        console.log("YOU WIN!!!!!!!!!!!!!!!!!!!!")
-        PlayerCounter = 0;
-        CPU_counter = 0;
-    }
-        else if(CPU_counter == 5){
-            console.log("YOU LOSE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-            PlayerCounter = 0;
-            CPU_counter = 0;
-        }
+   
+
 
     while(CPU_counter < 5 || PlayerCounter < 5){
 
             console.log(CPU_counter);
             console.log(PlayerCounter);
+            
     
         if(CPU_choice_adjusted == "rock" && choice_adjusted == "rock"){
-            console.log("It's a DRAW!!");
+            notificationTextSmall.textContent = "It's a DRAW";
             return 0;
         }   
         else if(CPU_choice_adjusted == "rock" && choice_adjusted == "scissors"){
-            console.log("You LOSE!!");
+            notificationTextSmall.textContent = "YOU LOSE!!";
             return CPU_counter++;
         }
         else if(CPU_choice_adjusted == "rock" && choice_adjusted == "papper"){
-            console.log("You WIN!!");
+            notificationTextSmall.textContent = "YOU WIN!!";
             return PlayerCounter++;
         }
     
     
         else if(CPU_choice_adjusted == "papper" && choice_adjusted == "papper"){
-            console.log("It's a DRAW!!");
+            notificationTextSmall.textContent = "I'ts a DRAW";
             return 0;
         }
         else if(CPU_choice_adjusted == "papper" && choice_adjusted == "rock"){
-            console.log("You LOSE!!");
+            notificationTextSmall.textContent = "YOU LOSE!!";
             return CPU_counter++;
         }
         else if(CPU_choice_adjusted == "papper" && choice_adjusted == "scissors"){
-            console.log("You WIN!!");
+            notificationTextSmall.textContent = "YOU WIN!!";
             return PlayerCounter++;
         }
 
 
         else if(CPU_choice_adjusted == "scissors" && choice_adjusted == "scissors"){
-            console.log("It's a DRAW!!");
+            notificationTextSmall.textContent = "I'ts a DRAW"
             return 0;
         }
         else if(CPU_choice_adjusted == "scissors" && choice_adjusted == "papper"){
-            console.log("you LOSE!!");
+            notificationTextSmall.textContent = "YOU LOSE!!";
             return CPU_counter++;
         }
         else if(CPU_choice_adjusted == "scissors" && choice_adjusted == "rock"){
-            console.log("You WIN!!");
+            notificationTextSmall.textContent = "YOU WIN!!";
             return PlayerCounter++;
         }   
     }
@@ -180,7 +254,7 @@ function PlayRound(cpupick,playerpick){
    
 
 
-
+PlayerSelection();
 
 
 
