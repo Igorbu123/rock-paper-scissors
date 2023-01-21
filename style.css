@@ -7,5 +7,67 @@
 
 .selectionMenu{
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 50px;
+}
+
+.btn_rock{
+    width: 85px;
+}
+
+.btn_papper{
+    width: 85px;
+}
+
+.scoreBoard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    gap: 75px
+}
+
+.playerScore{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cpuScore{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.notificationScreen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.notificationWinnerText{
+    font-size: 75px;
+}
+
+.notificationPlayAgain{
+    font-size: 50px;
+}
+
+.title{
+    font-size: 25px;
+}
+
+.description{
+    font-size: 25px;
 }
