@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 250px;
+}
+
+.selectionMenu{
+    display: flex;
+    gap: 50px;
+}
